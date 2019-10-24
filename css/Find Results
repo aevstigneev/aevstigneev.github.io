@@ -1,0 +1,46 @@
+Searching 211 files for ".mfp-bottom-bar"
+
+P:\Сайт\alime\alime\.sass-cache\21a4b39ea5e18e82b477801fd65653651cff68fb\_reboot.scssc:
+    <binary>
+
+P:\Сайт\alime\alime\css\magnific-popup.css:
+  277      margin: 0; }
+  278  
+  279: .mfp-bottom-bar {
+  280    margin-top: -36px;
+  281    position: absolute;
+  ...
+  313      display: inline;
+  314      margin-left: 5px; }
+  315:   .mfp-img-mobile .mfp-bottom-bar {
+  316      background: rgba(0, 0, 0, 0.6);
+  317      bottom: 0;
+  ...
+  321      position: fixed;
+  322      box-sizing: border-box; }
+  323:     .mfp-img-mobile .mfp-bottom-bar:empty {
+  324        padding: 0; }
+  325    .mfp-img-mobile .mfp-counter {
+
+P:\Сайт\alime\alime\scss\_reboot.scss:
+  126  }
+  127  
+  128: .mfp-bottom-bar {
+  129      display: none !important;
+  130  }
+
+P:\Сайт\alime\alime\style.css:
+  150    background: #fc6060; }
+  151  
+  152: .mfp-bottom-bar {
+  153    display: none !important; }
+  154  
+
+P:\Сайт\alime\alime\Новая папка\scss\_reboot.scss:
+  126  }
+  127  
+  128: .mfp-bottom-bar {
+  129      display: none !important;
+  130  }
+
+8 matches across 5 files

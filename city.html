@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+   <title>aevstigneev.ru</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/core-img/favicon.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+<!-- Udalyaet kopirovanie s cayta -->
+
+    <script type="text/javascript">
+        function preventSelection(element){
+            var preventSelection = false;
+            function addHandler(element, event, handler){
+                if (element.attachEvent)
+                    element.attachEvent('on' + event, handler);
+                else
+                    if (element.addEventListener)
+                        element.addEventListener(event, handler, false);
+                }
+                function removeSelection(){
+                    if (window.getSelection) { window.getSelection().removeAllRanges(); }
+                    else if (document.selection && document.selection.clear)
+                        document.selection.clear();
+                }
+                function killCtrlA(event){
+                    var event = event || window.event;
+                    var sender = event.target || event.srcElement;
+                    if (sender.tagName.match(/INPUT|TEXTAREA/i))
+                        return;
+                    var key = event.keyCode || event.which;
+                    if (event.ctrlKey && key == 'A'.charCodeAt(0))
+                    {
+                        removeSelection();
+                        if (event.preventDefault)
+                            event.preventDefault();
+                        else
+                            event.returnValue = false;
+                    }
+                }
+                addHandler(element, 'mousemove', function(){
+                    if(preventSelection)
+                        removeSelection();
+                });
+                addHandler(element, 'mousedown', function(event){
+                    var event = event || window.event;
+                    var sender = event.target || event.srcElement;
+                    preventSelection = !sender.tagName.match(/INPUT|TEXTAREA/i);
+                });
+                addHandler(element, 'mouseup', function(){
+                    if (preventSelection)
+                        removeSelection();
+                    preventSelection = false;
+                });
+                addHandler(element, 'keydown', killCtrlA);
+                addHandler(element, 'keyup', killCtrlA);
+            }
+            function clickIE4(){
+                if (event.button==2){
+                    return false;
+                }
+            }
+            function clickNS4(e){
+                if (document.layers||document.getElementById&&!document.all){
+                    if (e.which==2||e.which==3){
+                        return false;
+                    }
+                }
+            }
+            if (document.layers){
+                document.captureEvents(Event.MOUSEDOWN);
+                document.onmousedown=clickNS4;
+            }
+            else if (document.all&&!document.getElementById){
+                document.onmousedown=clickIE4;
+            }
+            document.oncontextmenu=new Function("return false")
+            preventSelection(document);
+        </script>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+   
+
+    <!-- Header Area Start -->
+    <header class="header-area">
+        <!-- Main Header Start -->
+        <div class="main-header-area">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Classy Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alimeNav">
+
+                        <!-- Logo -->
+                        <a class="nav-brand" href="./index.html"><img src="./img/core-img/logo.png" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                            <!-- Menu Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul id="nav">
+                                    <li><a href="./index.html">Home</a></li>
+                                    
+                                    
+                                    <li class="active"><a href="./gallery.html">Gallery</a></li>
+                                    <li><a href="./about.html">About me</a></li>
+                                    <!-- <li><a href="./blog.html">Blog</a></li> -->
+                                    <li><a href="./contact.html">Contact</a></li>
+                                </ul>
+
+                                
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+
+    <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/38.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Gallery</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+    <!-- Gallery Area Start -->
+    <div class="alime-portfolio-area section-padding-80 clearfix">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Projects Menu -->
+                    <div class="alime-projects-menu wow fadeInUp" data-wow-delay="100ms">
+                        <div class="portfolio-menu text-center">
+
+                            <a class="btn" href="nature.html">Nature</a>
+                            <a class="btn" href="human.html">Human</a>
+                            <a class="btn active" href="city.html">City</a>
+                            <a class="btn" href="sport.html">Sport</a>
+                            <a class="btn" href="technic.html">Technic</a>
+                            <a class="btn" href="animals.html">Animals</a>
+                            <a class="btn" href="pano.html">Pano</a>
+
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb justify-content-center">
+                                    <li class="breadcrumb-item"><a href="gallery.html"><i class="icon_table"></i> Gallery</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">City</li>
+                                </ol>
+                            </nav>
+                  
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+   
+            <div class="row alime-portfolio">
+                
+
+                 <!-- ____________________________________________________CITY___________________________________________________ -->
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/801.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/801.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/802.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/802.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/803.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/803.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/804.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/804.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/805.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/805.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/806.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/806.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/807.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/807.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/808.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/808.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/809.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/809.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/810.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/810.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/811.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/811.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/812.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/812.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/813.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/813.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/814.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/814.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/815.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/815.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/816.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/816.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/817.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/817.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/818.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/818.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/819.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/819.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/820.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/820.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/821.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/821.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/822.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/822.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/823.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/823.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/824.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/824.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/825.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/825.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/826.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/826.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/827.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/827.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/828.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/828.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/829.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/829.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/830.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/830.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/831.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/831.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/832.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/832.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/833.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/833.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/834.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/834.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/835.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/835.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/836.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/836.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/837.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/837.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/838.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/838.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/839.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/839.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/840.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/840.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/841.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/841.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/842.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/842.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/843.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/843.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/844.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/844.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/845.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/845.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/846.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/846.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/847.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/847.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/848.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/848.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/849.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/849.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/850.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/850.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/851.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/851.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/852.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/852.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/853.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/853.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/854.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/854.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/855.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/855.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/856.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/856.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/857.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/857.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/858.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/858.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/859.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/859.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/860.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/860.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/861.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/861.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/862.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/862.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/863.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/863.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/864.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/864.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/865.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/865.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/866.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/866.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/867.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/867.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/868.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/868.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/869.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/869.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/870.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/870.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/871.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/871.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/872.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/872.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/873.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/873.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/874.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/874.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/875.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/875.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/876.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/876.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/877.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/877.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/878.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/878.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/879.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/879.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/880.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/880.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/881.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/881.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item city mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/City/882.jpg" alt=""> 
+                        <div class="hover-content">
+                            <a href="img/bg-img/City/882.jpg" class="portfolio-img">+</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div> 
+
+             <div class="row">
+                <div class="col-12 text-center wow fadeInUp" data-wow-delay="500ms">
+                    <a href="gallery.html" class="btn alime-btn btn-2 mt-15">Back to Menu</a>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <!-- Gallery Area End -->
+
+    <!-- Follow Area Start -->
+    <div class="follow-area clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <h2>Follow Instagram</h2>
+                        <a href="https://www.instagram.com/lexefffect/" target="_blank">@lexefffect</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instagram Feed Area -->
+        <div class="instragram-feed-area owl-carousel">
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/11.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/12.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/13.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/14.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/15.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/16.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Follow Area End -->
+
+    <!-- Footer Area Start -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-content d-flex align-items-center justify-content-between">
+                        <!-- Copywrite Text -->
+                        <div class="copywrite-text">
+                            <p>
+Copyright &copy;2008-<script>document.write(new Date().getFullYear());</script> All Images Aleksey Evstigneev
+</p>
+                        </div>
+                        <!-- Footer Logo -->
+                        <div class="footer-logo">
+                            <a href="./index.html"><img src="img/core-img/logo2.png" alt=""></a>
+                        </div>
+                        <!-- Social Info -->
+                        <div class="social-info">
+                            
+                            <a href="https://www.instagram.com/lexefffect/"  target="_blank"><i class="ti-linkedin" aria-hidden="true"></i></a>
+                            
+                            <a href="https://vk.com/lexeffect" target="_blank"><i class="fa fa-vk fa-1x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!-- **** All JS Files ***** -->
+    <!-- jQuery 2.2.4 -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Popper -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- All Plugins -->
+    <script src="js/alime.bundle.js"></script>
+    <!-- Active -->
+    <script src="js/default-assets/active.js"></script>
+
+</body>
+
+</html>

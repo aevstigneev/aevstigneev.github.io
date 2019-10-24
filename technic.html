@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+   <title>aevstigneev.ru</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/core-img/favicon.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+<!-- Udalyaet kopirovanie s cayta -->
+
+    <script type="text/javascript">
+        function preventSelection(element){
+            var preventSelection = false;
+            function addHandler(element, event, handler){
+                if (element.attachEvent)
+                    element.attachEvent('on' + event, handler);
+                else
+                    if (element.addEventListener)
+                        element.addEventListener(event, handler, false);
+                }
+                function removeSelection(){
+                    if (window.getSelection) { window.getSelection().removeAllRanges(); }
+                    else if (document.selection && document.selection.clear)
+                        document.selection.clear();
+                }
+                function killCtrlA(event){
+                    var event = event || window.event;
+                    var sender = event.target || event.srcElement;
+                    if (sender.tagName.match(/INPUT|TEXTAREA/i))
+                        return;
+                    var key = event.keyCode || event.which;
+                    if (event.ctrlKey && key == 'A'.charCodeAt(0))
+                    {
+                        removeSelection();
+                        if (event.preventDefault)
+                            event.preventDefault();
+                        else
+                            event.returnValue = false;
+                    }
+                }
+                addHandler(element, 'mousemove', function(){
+                    if(preventSelection)
+                        removeSelection();
+                });
+                addHandler(element, 'mousedown', function(event){
+                    var event = event || window.event;
+                    var sender = event.target || event.srcElement;
+                    preventSelection = !sender.tagName.match(/INPUT|TEXTAREA/i);
+                });
+                addHandler(element, 'mouseup', function(){
+                    if (preventSelection)
+                        removeSelection();
+                    preventSelection = false;
+                });
+                addHandler(element, 'keydown', killCtrlA);
+                addHandler(element, 'keyup', killCtrlA);
+            }
+            function clickIE4(){
+                if (event.button==2){
+                    return false;
+                }
+            }
+            function clickNS4(e){
+                if (document.layers||document.getElementById&&!document.all){
+                    if (e.which==2||e.which==3){
+                        return false;
+                    }
+                }
+            }
+            if (document.layers){
+                document.captureEvents(Event.MOUSEDOWN);
+                document.onmousedown=clickNS4;
+            }
+            else if (document.all&&!document.getElementById){
+                document.onmousedown=clickIE4;
+            }
+            document.oncontextmenu=new Function("return false")
+            preventSelection(document);
+        </script>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+   
+
+    <!-- Header Area Start -->
+    <header class="header-area">
+        <!-- Main Header Start -->
+        <div class="main-header-area">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Classy Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alimeNav">
+
+                        <!-- Logo -->
+                        <a class="nav-brand" href="./index.html"><img src="./img/core-img/logo.png" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                            <!-- Menu Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul id="nav">
+                                    <li><a href="./index.html">Home</a></li>
+                                    <li class="active"><a href="./gallery.html">Gallery</a></li>
+                                    <li><a href="./about.html">About me</a></li>
+                                    <!-- <li><a href="./blog.html">Blog</a></li> -->
+                                    <li><a href="./contact.html">Contact</a></li>
+                                </ul>
+
+                                
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+
+    <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/38.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Gallery</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+    <!-- Gallery Area Start -->
+    <div class="alime-portfolio-area section-padding-80 clearfix">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Projects Menu -->
+                    <div class="alime-projects-menu wow fadeInUp" data-wow-delay="100ms">
+                        <div class="portfolio-menu text-center">
+
+                            <a class="btn" href="nature.html">Nature</a>
+                            <a class="btn" href="human.html">Human</a>
+                            <a class="btn" href="city.html">City</a>
+                            <a class="btn" href="sport.html">Sport</a>
+                            <a class="btn active" href="technic.html">Technic</a>
+                            <a class="btn" href="animals.html">Animals</a>
+                            <a class="btn" href="pano.html">Pano</a>
+
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb justify-content-center">
+                                    <li class="breadcrumb-item"><a href="gallery.html"><i class="icon_table"></i> Gallery</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Technic</li>
+                                </ol>
+                            </nav>
+                  
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+   
+            <div class="row alime-portfolio">
+                
+                             
+                <!-- _________________________________________________TECHNIC_______________________________________________ -->
+                
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1601.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1601.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1602.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1602.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1603.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1603.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1604.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1604.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1605.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1605.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1606.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1606.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1607.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1607.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1608.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1608.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1609.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1609.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1610.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1610.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1611.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1611.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1612.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1612.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1613.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1613.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1614.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1614.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1615.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1615.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1616.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1616.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1617.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1617.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1618.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1618.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Gallery Item -->
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item technic mb-30 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="img/bg-img/Technic/1619.jpg" alt="">
+                        <div class="hover-content">
+                            <a href="img/bg-img/Technic/1619.jpg" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div> 
+
+             <div class="row">
+                <div class="col-12 text-center wow fadeInUp" data-wow-delay="500ms">
+                    <a href="gallery.html" class="btn alime-btn btn-2 mt-15">Back to Menu</a>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <!-- Gallery Area End -->
+
+    <!-- Follow Area Start -->
+    <div class="follow-area clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <h2>Follow Instagram</h2>
+                        <a href="https://www.instagram.com/lexefffect/" target="_blank">@lexefffect</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instagram Feed Area -->
+        <div class="instragram-feed-area owl-carousel">
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/11.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/12.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/13.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/14.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/15.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Single Instagram Item -->
+            <div class="single-instagram-item">
+                <img src="img/bg-img/IG/16.jpg" alt="">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/lexefffect/" target="_blank">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>Lexefffect</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Follow Area End -->
+
+    <!-- Footer Area Start -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-content d-flex align-items-center justify-content-between">
+                        <!-- Copywrite Text -->
+                        <div class="copywrite-text">
+                            <p>
+Copyright &copy;2008-<script>document.write(new Date().getFullYear());</script> All Images Aleksey Evstigneev
+</p>
+                        </div>
+                        <!-- Footer Logo -->
+                        <div class="footer-logo">
+                            <a href="./index.html"><img src="img/core-img/logo2.png" alt=""></a>
+                        </div>
+                        <!-- Social Info -->
+                        <div class="social-info">
+                            
+                            <a href="https://www.instagram.com/lexefffect/"  target="_blank"><i class="ti-linkedin" aria-hidden="true"></i></a>
+                            
+                            <a href="https://vk.com/lexeffect" target="_blank"><i class="fa fa-vk fa-1x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!-- **** All JS Files ***** -->
+    <!-- jQuery 2.2.4 -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Popper -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- All Plugins -->
+    <script src="js/alime.bundle.js"></script>
+    <!-- Active -->
+    <script src="js/default-assets/active.js"></script>
+
+</body>
+
+</html>
